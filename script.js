@@ -1,22 +1,50 @@
-const container = document.querySelector('#main-container');
+const container = document.querySelector("#main-container");
 const containerSize = 600;
 
-console.log(container);
+function init() {
+  createGrid(32);
+
+  let createButton = document.querySelector("#create-button");
+
+  createButton.addEventListener("click", function (e) {
+    let newGridSize = prompt("Enter desired grid size.");
+    let gridSizeNumber = Number(newGridSize)
+
+    if (Number(gridSizeNumber) > 100) {
+      return
+    }
+
+    createGrid(Number(gridSizeNumber));
+  });
+}
+
+function createCell(cellSize) {
+  const cell = document.createElement("div");
+  cell.classList.add("square");
+
+  cell.style.width = `${cellSize}px`;
+  cell.style.height = `${cellSize}px`;
+
+  container.appendChild(cell);
+
+  cell.addEventListener("mouseover", function (e) {
+    cell.style.borderColor = getRandomColor();
+    cell.style.backgroundColor = getRandomColor();
+  });
+}
 
 function createGrid(size) {
-  container.innerHTML = '';
-
+  container.innerHTML = "";
   const cellSize = containerSize / size;
 
   for (let i = 0; i < size * size; i++) {
-    const cell = document.createElement('div');
-    cell.classList.add('square');
-
-    cell.style.width = `${cellSize}px`;
-    cell.style.height = `${cellSize}px`;
-
-    container.appendChild(cell);
+    createCell(cellSize);
   }
 }
 
-createGrid(16);
+function getRandomColor() {
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  return "#" + randomColor;
+}
+
+init();
