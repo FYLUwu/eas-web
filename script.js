@@ -10,11 +10,11 @@ function init() {
     let newGridSize = prompt("Enter desired grid size.");
     let gridSizeNumber = Number(newGridSize)
 
-    if (Number(gridSizeNumber) > 100) {
+    if (gridSizeNumber > 100) {
       return
     }
 
-    createGrid(Number(gridSizeNumber));
+    createGrid(gridSizeNumber);
   });
 }
 
@@ -43,7 +43,7 @@ function createGrid(size) {
 }
 
 function getRandomColor() {
-  let randomColor = Math.floor(Math.random() * 16777215).toString(16);
+  let randomColor = Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
   return "#" + randomColor;
 }
 
