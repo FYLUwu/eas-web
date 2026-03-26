@@ -10,7 +10,7 @@ function init() {
     let newGridSize = prompt("Enter desired grid size.");
     let gridSizeNumber = Number(newGridSize)
 
-    if (gridSizeNumber > 100) {
+    if (gridSizeNumber > 100 || isNaN(gridSizeNumber) || gridSizeNumber === 0) {
       return
     }
 
