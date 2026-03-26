@@ -2,7 +2,7 @@
 
 a browser-based etch-a-sketch thing. hover over the grid to paint cells with random colors, click the button to start fresh with a new grid size.
 
-![grid demo](https://i.imgur.com/placeholder.png)
+![alt text](image-1.png)
 
 ## how it works
 
