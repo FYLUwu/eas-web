@@ -8,10 +8,10 @@ function init() {
 
   createButton.addEventListener("click", function (e) {
     let newGridSize = prompt("Enter desired grid size.");
-    let gridSizeNumber = Number(newGridSize)
+    let gridSizeNumber = Number(newGridSize);
 
     if (gridSizeNumber > 100 || isNaN(gridSizeNumber) || gridSizeNumber === 0) {
-      return
+      return;
     }
 
     createGrid(gridSizeNumber);
@@ -43,7 +43,9 @@ function createGrid(size) {
 }
 
 function getRandomColor() {
-  let randomColor = Math.floor(Math.random() * 16777215).toString(16).padStart(6, '0');
+  let randomColor = Math.floor(Math.random() * 16777215)
+    .toString(16)
+    .padStart(6, "0");
   return "#" + randomColor;
 }
 
